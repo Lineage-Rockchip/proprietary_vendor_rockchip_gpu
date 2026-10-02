@@ -1,0 +1,138 @@
+//
+// Copyright (C) 2026 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+soong_namespace {}
+
+cc_prebuilt_library_shared {
+    name: "libGLES_mali",
+    owner: "rockchip",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["lib/arm/libGLES_mali.so"],
+            shared_libs: [
+                "android.hardware.graphics.allocator-V2-ndk",
+                "libbinder_ndk",
+                "liblog",
+                "libbase",
+                "libnativewindow",
+                "libutils",
+                "android.hardware.graphics.mapper@4.0",
+                "libgralloctypes",
+                "libhidlbase",
+                "libcutils",
+                "libhardware",
+                "libdmabufheap",
+                "libz",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: ["lib/arm64/libGLES_mali.so"],
+            shared_libs: [
+                "android.hardware.graphics.allocator-V2-ndk",
+                "libbinder_ndk",
+                "liblog",
+                "libbase",
+                "libnativewindow",
+                "libutils",
+                "android.hardware.graphics.mapper@4.0",
+                "libgralloctypes",
+                "libhidlbase",
+                "libcutils",
+                "libhardware",
+                "libdmabufheap",
+                "libz",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    relative_install_path: "egl",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vulkan.mali",
+    owner: "rockchip",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["lib/arm/vulkan.mali.so"],
+            shared_libs: [
+                "libGLES_mali",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: ["lib/arm64/vulkan.mali.so"],
+            shared_libs: [
+                "libGLES_mali",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    relative_install_path: "hw",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libgpudataproducer",
+    owner: "rockchip",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["lib/arm/libgpudataproducer.so"],
+            shared_libs: [
+                "libcutils",
+                "liblog",
+                "libbase",
+                "libdmabufheap",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: ["lib/arm64/libgpudataproducer.so"],
+            shared_libs: [
+                "libcutils",
+                "liblog",
+                "libbase",
+                "libdmabufheap",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    soc_specific: true,
+}
