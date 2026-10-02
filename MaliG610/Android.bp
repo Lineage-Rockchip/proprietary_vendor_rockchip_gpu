@@ -136,3 +136,17 @@ cc_prebuilt_library_shared {
     prefer: true,
     soc_specific: true,
 }
+
+install_symlink {
+    name: "libOpenCL_symlink32",
+    vendor: true,
+    installed_location: "lib/libOpenCL.so",
+    symlink_target: "egl/libGLES_mali.so",
+}
+
+install_symlink {
+    name: "libOpenCL_symlink64",
+    vendor: true,
+    installed_location: "lib64/libOpenCL.so",
+    symlink_target: "egl/libGLES_mali.so",
+}
